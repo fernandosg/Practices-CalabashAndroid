@@ -13,3 +13,14 @@ Then /^I press button with id "([^"]*)"$/ do |id|
   sleep(1)
   screenshot_embed({:name=>"list_activity"})
 end
+
+Then /^I scroll down until I see the "([^"]*)" text$/ do |text|
+  q = query("android.widget.TextView text:'#{text}'")
+  while q.empty?
+    scroll_down
+    q=query("android.widget.TextView text:'#{text}'")
+  end
+  touch(q)
+  sleep(1)
+  screenshot_embed({:name=>"clicked_item_in_listview"})
+end
