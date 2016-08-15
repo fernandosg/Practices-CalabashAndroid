@@ -24,3 +24,16 @@ Then /^I scroll down until I see the "([^"]*)" text$/ do |text|
   sleep(1)
   screenshot_embed({:name=>"clicked_item_in_listview"})
 end
+
+Then /^I click on spinner with id "([^"]*)"$/ do |id|
+  touch("android.widget.Spinner id:'#{id}'")
+  sleep(1)
+  screenshot_embed({:name=>"clicked_spinner"})
+end
+
+
+Then /^I click the item with "([^"]*)" text$/ do |text|
+  touch("android.widget.TextView marked:'#{text}'")
+  sleep(1)
+  screenshot_embed({:name=>"clicked_item_spinner"})
+end
